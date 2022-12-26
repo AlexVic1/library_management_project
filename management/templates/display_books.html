@@ -1,0 +1,57 @@
+{%extends 'base.html' %} {%block title%} Display Books {%endblock%}
+ {%block h1%} Display Books {%endblock%} 
+
+  {%block content%}
+  {%if messages%}
+ {%for message in messages%}
+ <label>{{message}}</label>
+{%endfor%}
+{%endif%}
+{%if not books%}
+<p>There are no books.</p>
+
+{%else%}
+  <div class="row">
+    <div style="float: right;margin-bottom: 1rem;" class="col-md-4 ">
+    <form class="form-group" method="get">
+
+    <div class="col-md-8"> 
+      <input class="form-control" type="text" name="query" id="query">
+    </div>
+    <div class="col-md-4"> 
+      <button class="btn btn-success" type="submit">Search</button>
+    </div>
+  </form>
+</div>
+  </div>
+ 
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Book Name</th>
+      <th>Author</th>
+      <th>Year published</th>
+      <th>Loan time</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {%for book in books%}
+    <tr>
+      <td>
+        {{book.name}}
+      </td>
+      <td>{{book.author}}</td>
+      <td>
+        {{book.year_published}}
+      </td>
+      <td>
+        {{book.type}}
+      </td>
+      <td> <a href="{%url 'remove_book' book.id%}">remove</a></td>
+    </tr>
+    {%endfor%}
+  </tbody>
+</table>
+{%endif%}
+  {%endblock%}

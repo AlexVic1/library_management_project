@@ -1,0 +1,40 @@
+{%extends 'base.html' %} {%block title%} Display Loans {%endblock%}
+ {%block h1%} Display Loans {%endblock%} 
+
+  {%block content%}
+  {%if messages%}
+ {%for message in messages%}
+ <label>{{message}}</label>
+{%endfor%}
+{%endif%}
+{%if not loans%}
+<p>There are no loans.</p>
+
+{%else%}
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Book Name</th>
+      <th>Customer Name</th>
+      <th>Loan Date</th>
+      <th>Return Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    {%for loan in loans%}
+    <tr>
+      <td>
+        {{loan.book.name}}
+      </td>
+      <td>
+        {{loan.customer.name}}
+      </td>
+      <td>{{loan.loan_date|date:'Y-m-d'}}</td>
+      <td>{{loan.return_date|date:'Y-m-d'}}</td>
+    </tr>
+    {%endfor%}
+  </tbody>
+</table>
+{%endif%}
+  {%endblock%}

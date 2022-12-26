@@ -1,0 +1,24 @@
+{%extends 'base.html' %} {%block title%} List Menu {%endblock%}
+{%block menu%} 
+<ul>
+{%if request.user.is_authenticated%}
+        <li><a href="{%url 'add_customer' %}">Add a new Customer</a></li>
+        <li><a href="{%url 'add_book' %}">Add a new book</a></li>
+        <li><a href="{%url 'loan_book' %}">Loan a book</a></li>
+        <li><a href="{%url 'active_loans' %}">Return a book</a></li>
+        <li><a href="{%url 'display_books' %}">Display all books</a></li>
+        <li><a href="{%url 'display_customers' %}">Display all customers</a></li>
+        <li><a href="{%url 'display_loans' %}">Display all loans</a></li>
+        <li><a href="{%url 'display_late_loans' %}">Display late loans</a></li>
+        <li><a href="{%url 'display_books' %}">Find book by name</a></li>
+        <li><a href="{%url 'display_customers' %}">Find customer by name</a></li>
+        <li><a href="{%url 'display_books' %}">Remove book</a></li>
+        <li><a href="{%url 'display_customers' %}">Remove customer</a></li>
+        <li><a href="{%url 'logout' %}">Logout</a></li>
+        {%else%}
+        <li><a href="{%url 'login' %}">Login</a></li>
+        {%endif%}
+    </ul>
+    {%endblock%}
+ {%block content%}
+ {%endblock%}
