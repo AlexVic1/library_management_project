@@ -1,11 +1,13 @@
 # library_management_project
 library_management Project run instructions:
 
-activate virtual enviroment-
+activate virtual enviroment:
+.\myenv\Scripts\activate  
 
-pip install -r requirements.txt-
 
-Python manage.py runserver-
+- pip install -r requirements.txt 
+
+- Python manage.py runserver
 
 superuser
 
